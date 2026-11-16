@@ -305,5 +305,1004 @@ body{padding-bottom:calc(110px + var(--safe-bot))}
       <button class="confno" onclick="hideConf()">Отмена</button>
       <button class="confyes" onclick="doReset()">🔄 Сброс</button>
     </div>
+  </div>
+</div>
 
-    
+<!-- WORKOUT COMPLETE -->
+<div class="wcov" id="wcov">
+  <div class="wcem">🏆</div>
+  <div class="wct">Тренировка<br>завершена!</div>
+  <div class="wcs" id="wcsub">Отличная работа!</div>
+  <div class="wcstats">
+    <div class="wcst"><div class="wcsv" id="wcsets">0</div><div class="wcsk">подходов</div></div>
+    <div class="wcst"><div class="wcsv" id="wcexs">0</div><div class="wcsk">упражнений</div></div>
+  </div>
+  <button class="wcbtn" onclick="closeWC()">Закрыть</button>
+</div>
+
+<!-- TIMER -->
+<div class="sbg" id="sbg" onclick="minimizeTimer()"></div>
+<div class="tsh" id="tsh">
+  <div class="thandle" id="thandle" onclick="minimizeTimer()"></div>
+  <div class="ttype" id="ttype">ОТДЫХ</div>
+  <div class="tex" id="tex">—</div>
+  <div class="rw">
+    <svg viewBox="0 0 180 180"><circle class="rbg" cx="90" cy="90" r="75"/><circle class="rfill" id="rfill" cx="90" cy="90" r="75"/></svg>
+    <div class="ri"><div class="rnum" id="rnum">0:00</div><div class="rlbl">ОСТАЛОСЬ</div></div>
+  </div>
+  <div class="tbtns">
+    <button class="tbskip" onclick="closeTimer()">Пропустить</button>
+    <button class="tbmain" id="tbmain" onclick="timerToggle()">Пауза</button>
+  </div>
+  <div class="tdone" id="tdone">✓ ВПЕРЁД — следующий подход!</div>
+</div>
+
+<!-- ПЛАШКА СВЁРНУТОГО ТАЙМЕРА -->
+<div class="tpill" id="tpill" onclick="expandTimer()">
+  <div class="tp-info"><div class="tp-type" id="tptype">ОТДЫХ</div><div class="tp-name" id="tpname">—</div></div>
+  <div class="tp-time" id="tptime">0:00</div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo" id="logo">ТРЕН<em>АЖ</em></div>
+    <div class="pw"><div class="pb"><div class="pf" id="pf" style="width:0%"></div></div><div class="pl" id="pl">0 / 0 подходов</div></div>
+  </div>
+  <div class="dtabs">
+    <button class="dtab active" style="--tc:var(--mon)" onclick="switchDay('mon',this)">Пн<br>Толчок</button>
+    <button class="dtab" style="--tc:var(--wed)" onclick="switchDay('wed',this)">Ср<br>Тяга</button>
+    <button class="dtab" style="--tc:var(--fri)" onclick="switchDay('fri',this)">Пт<br>Ноги</button>
+  </div>
+</div>
+
+<!-- ══════════════ ПОНЕДЕЛЬНИК ══════════════ -->
+<div class="daypanel active" id="dp-mon" style="--c:var(--mon)">
+  <div class="hero">
+    <div class="hs-d"><em style="color:var(--mon)">ПН</em><br>ТОЛ<br>ЧОК</div>
+    <div class="hs-m">
+      <div class="hs-f">Грудь · Плечи · Трицепс · Пресс</div>
+      <div class="hs-chips"><div class="hchip">6 упр.</div><div class="hchip">17 подх.</div><div class="hchip">~50 мин</div></div>
+    </div>
+  </div>
+
+
+
+
+  <div class="wu" id="wu-mon">
+    <div class="wu-hd" onclick="toggleWu('wu-mon')">
+      <div class="wu-ico">🔥</div>
+      <div class="wu-info"><div class="wu-tit">Разминка</div><div class="wu-sub">5–7 мин · Перед тренировкой обязательно</div></div>
+      <div class="wu-arr">▾</div>
+    </div>
+    <div class="wu-body"><div class="wu-inner">
+      <div class="wustep"><div class="wun">1</div><div class="wut"><b>Вращения в плечах</b> — 10 вперёд + 10 назад каждой рукой. Разогревает ротаторную манжету перед жимами</div></div>
+      <div class="wustep"><div class="wun">2</div><div class="wut"><b>Круговые движения руками</b> — большие круги обеими руками, 15 сек вперёд + 15 сек назад</div></div>
+      <div class="wustep"><div class="wun">3</div><div class="wut"><b>Растяжка груди</b> — сцепи руки за спиной, раскрой грудь, потяни плечи назад. Держи <b>30 сек × 2</b></div></div>
+      <div class="wustep"><div class="wun">4</div><div class="wut"><b>Отжимания от стены</b> — <b>2 × 12 медленно</b>. Разогревает грудь, плечи и трицепс без нагрузки</div></div>
+      <div class="wustep"><div class="wun">5</div><div class="wut"><b>Вращения запястий</b> — 10 раз в каждую сторону. Важно перед хватом на брусьях</div></div>
+      <div class="wustep"><div class="wun">6</div><div class="wut"><b>Боковые наклоны корпуса</b> — 10 раз в каждую сторону медленно. Разогревает кор</div></div>
+      <div class="wunote"><b>Перед жимами:</b> разминочные подходы не считаются в план — пустой гриф 2×10, затем ~50% рабочего веса ×6 и ~75% ×3. Не доводи их до усталости</div>
+    </div></div>
+  </div>
+
+
+  <div class="finbanner" id="fin-mon"><div class="fbt">💪 Понедельник закрыт!</div><div class="fbs">Грудь, плечи и трицепс поработали на совесть</div></div>
+  <div class="exlist" id="list-mon">
+<div class="excard" data-sets="4" data-rest="150" data-day="mon" data-name="Жим штанги лёжа">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">01</div><div class="exmain"><div class="extit">Жим штанги лёжа</div><div class="exmus">Грудь + Трицепс + Передняя дельта</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">4</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">6→10</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">2:30</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Ляг так, чтобы глаза были под грифом. Лопатки сведи и вдави в скамью — они <b>не двигаются</b> весь подход</li>
+          <li><span class="sd">2</span>Ступни <b>плоско на полу</b> под коленями, давят в пол. Ягодицы и таз прижаты к скамье, прогиб в пояснице небольшой</li>
+          <li><span class="sd">3</span>Хват чуть шире плеч — в нижней точке предплечья вертикальны. Большой палец обхватывает гриф</li>
+          <li><span class="sd">4</span>Сними гриф на прямых руках. Опускай <b>2–3 сек</b> к низу груди, локти ~<b>45–60°</b> к корпусу</li>
+          <li><span class="sd">5</span>Лёгкое касание груди без отскока, выжимай вверх. Выдох на жиме</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Первый раз со штангой: <b>пустой гриф</b> (обычно 20 кг, вес написан на грифе) 2×10 для техники, потом подбирай вес</li>
+          <li><span class="tb">✓</span>Работай в стойке с <b>предохранительными упорами</b> на уровне чуть выше груди в нижней точке — или попроси страховку. Один без упоров не жми</li>
+          <li><span class="tb">✓</span>Рабочий вес — такой, чтобы в конце подхода оставалось 1–2 повтора в запасе</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Плечи забиваются раньше груди — локти слишком широко. Держи ~45–60° и лопатки вдавленными</li>
+          <li><span class="eb">!</span>Вес уходит на спину — ступни не на носках, ягодицы не отрываются от скамьи</li>
+          <li><span class="eb">!</span>Отскок от груди — теряется нагрузка и растёт риск травмы</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">10 повторов во всех подходах → <b>+2.5 кг</b> на следующей тренировке. Не получилось — останься на весе ещё раз</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="120" data-day="mon" data-name="Жим штанги сидя">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">02</div><div class="exmain"><div class="extit">Жим штанги сидя</div><div class="exmus">Плечи + Трицепс</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">8→12</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">2:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Скамья со спинкой почти вертикально, ступни на полу. Гриф снимаешь со стойки на уровне чуть выше головы</li>
+          <li><span class="sd">2</span>Хват чуть шире плеч, предплечья вертикальны. Старт — гриф у ключиц</li>
+          <li><span class="sd">3</span>Жми вверх: голова чуть уходит назад, гриф идёт прямой линией над макушкой. Вверху руки почти прямые</li>
+          <li><span class="sd">4</span>Опускай <b>2–3 сек</b> к ключицам. Пресс напряжён, ягодицы и спина в скамье</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Рабочий вес обычно <b>50–60% от жима лёжа</b> — начни с пустого грифа или 20–30 кг</li>
+          <li><span class="tb">✓</span>Работай в стойке с упорами — гриф всегда можно сбросить на них</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Сильный прогиб поясницы (вес на спине) — спина прижата, пресс держи</li>
+          <li><span class="eb">!</span>Жим из-за головы — только перед лицом, иначе страдают шея и плечи</li>
+          <li><span class="eb">!</span>Помогаешь корпусом или ногами — вес слишком тяжёлый</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">12 повторов во всех подходах → <b>+2.5 кг</b> (мелкие блины 1.25 по бокам)</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="2" data-rest="150" data-day="mon" data-name="Брусья с наклоном">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">03</div><div class="exmain"><div class="extit">Брусья с наклоном</div><div class="exmus">Грудь + Трицепс</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">2</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">6→10</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">2:30</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Наклон тела вперёд <b>30–45°</b> — чем больше наклон, тем больше грудь. Ноги скрещены позади</li>
+          <li><span class="sd">2</span>Опускайся медленно <b>2–3 сек</b> до тех пор пока плечи не окажутся чуть ниже локтей</li>
+          <li><span class="sd">3</span>Мощно выжимай вверх, <b>не распрямляй</b> руки до конца — держи напряжение в груди</li>
+          <li><span class="sd">4</span>Локти ~<b>45°</b> к корпусу. Выдох вверх, вдох вниз</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Представь что хочешь свести руки впереди — включает грудь сильнее</li>
+          <li><span class="tb">✓</span>При дискомфорте в плечах — стоп до точки боли</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Тело вертикально — нагрузка идёт в трицепс, не грудь</li>
+          <li><span class="eb">!</span>Локти сильно в стороны — перегруз плечевого сустава</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">10 повт во всех подходах → добавляй вес: <b>блин на поясе</b> (пояс для брусьев) или гантель между колен</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="60" data-day="mon" data-name="Подъём в стороны">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">04</div><div class="exmain"><div class="extit">Подъём в стороны</div><div class="exmus">Средняя дельта</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">12→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Наклон корпуса 10–15° вперёд. Поднимай строго до <b>параллели с полом</b> — не выше</li>
+          <li><span class="sd">2</span>Мизинец чуть выше большого пальца. Пауза <b>1 сек</b> вверху. Опускай <b>3 сек</b></li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Вес лёгкий: 5–8 кг. Это изоляция, а не сила</li>
+          <li><span class="tb">✓</span>В зале можно делать на нижнем блоке одной рукой — нагрузка постоянная на всём движении</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Выше параллели — перегруз надостной мышцы плеча</li>
+          <li><span class="eb">!</span>Рывки и раскачка корпуса — трапеция перехватывает нагрузку</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повт → <b>+1–2 кг</b> или пауза 2 сек вверху</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="2" data-rest="60" data-day="mon" data-name="Трицепс на блоке над головой">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">05</div><div class="exmain"><div class="extit">Разгибание на блоке над головой</div><div class="exmus">Трицепс (длинная головка)</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">2</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">12→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Поставь канатную рукоятку на нижний блок. Встань спиной к блоку, возьми канат двумя руками за головой. Локти подняты вверх, направлены вперёд и прижаты к голове. Одну ногу поставь вперёд для устойчивости</li>
+          <li><span class="sd">2</span>Разгибай руки вперёд-вверх до полного выпрямления над головой. Пауза <b>1 сек</b></li>
+          <li><span class="sd">3</span>Возвращай канат за голову <b>3 сек</b>, чувствуя растяжение трицепса. Двигаются только предплечья</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Длинная головка трицепса лучше всего растёт, когда рука поднята над головой. Жимы и брусья её грузят слабее</li>
+          <li><span class="tb">✓</span>Вес лёгкий или средний: локти не любят тяжёлых рывков</li>
+          <li><span class="tb">✓</span>Нет блока — разгибай одну гантель двумя руками из-за головы, сидя на скамье</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Локти разъезжаются в стороны или опускаются — нагрузка уходит с трицепса</li>
+          <li><span class="eb">!</span>Раскачка корпусом и прогиб поясницы — вес слишком тяжёлый</li>
+          <li><span class="eb">!</span>Боль в локте — снижай вес сразу, не терпи</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов во всех подходах → <b>+1 пластина</b> на стеке</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="60" data-day="mon" data-name="Подъём ног в упоре на локтях">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">06</div><div class="exmain"><div class="extit">Подъём ног в упоре на локтях</div><div class="exmus">Нижний пресс</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">10→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Встань в «римский стул» (тренажёр с упорами под локти): предплечья на подушках, кисти держат ручки, спина плотно прижата к спинке, плечи опущены вниз</li>
+          <li><span class="sd">2</span>Подними колени выше уровня таза и в верхней точке <b>подкрути таз</b>: поясница округляется и отходит от спинки — это и есть работа пресса</li>
+          <li><span class="sd">3</span>Задержись <b>1 сек</b>, опускай <b>3 сек</b> без маятника. Каждый повтор начинай из полной остановки</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Начни с согнутыми коленями. Когда 15 чистых повторов во всех подходах — выпрями ноги: рычаг длиннее, нагрузка выше</li>
+          <li><span class="tb">✓</span>Хват и раскачка здесь не мешают, поэтому пресс устаёт раньше предплечий — это и нужно</li>
+          <li><span class="tb">✓</span>Нет подкрутки таза — работают сгибатели бедра, а не пресс</li>
+          <li><span class="tb">✓</span>Если римский стул занят — подъёмы ног в висе на турнике с согнутыми коленями</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Раскачка корпусом — инерция делает работу за пресс</li>
+          <li><span class="eb">!</span>Плечи уходят к ушам, локти съезжают с подушек — держи плечи вниз</li>
+          <li><span class="eb">!</span>Ноги поднимаются без подкрутки таза — повтор не засчитывается</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов с согнутыми коленями → <b>прямые ноги</b> → пауза 2 сек наверху → утяжелители на лодыжках</div></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ СРЕДА ══════════════ -->
+<div class="daypanel" id="dp-wed" style="--c:var(--wed)">
+  <div class="hero">
+    <div class="hs-d"><em style="color:var(--wed)">СР</em><br>ТЯ<br>ГА</div>
+    <div class="hs-m">
+      <div class="hs-f">Спина · Бицепс · Задняя дельта · Кор</div>
+      <div class="hs-chips"><div class="hchip">6 упр.</div><div class="hchip">18 подх.</div><div class="hchip">~50 мин</div></div>
+    </div>
+  </div>
+
+
+
+  <div class="wu" id="wu-wed" style="--c:var(--wed)">
+    <div class="wu-hd" onclick="toggleWu('wu-wed')">
+      <div class="wu-ico">🔥</div>
+      <div class="wu-info"><div class="wu-tit">Разминка</div><div class="wu-sub">5–7 мин · Перед тренировкой обязательно</div></div>
+      <div class="wu-arr">▾</div>
+    </div>
+    <div class="wu-body"><div class="wu-inner">
+      <div class="wustep"><div class="wun" style="background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.3);color:var(--wed)">1</div><div class="wut"><b>Кошка-корова</b> — на четвереньках, чередуй прогиб и округление спины. <b>10 медленных повторов</b>. Готовит позвоночник к тяговым движениям</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.3);color:var(--wed)">2</div><div class="wut"><b>Вращения лопатками</b> — поднимай плечи к ушам, отводи назад и опускай. <b>10 кругов</b>. Активирует ретракторы лопаток</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.3);color:var(--wed)">3</div><div class="wut"><b>Тяга сидя в тренажёре на лёгком весе</b> — <b>1 × 12</b> медленно. Включает спину перед подтягиваниями</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.3);color:var(--wed)">4</div><div class="wut"><b>Вис на турнике</b> — просто виси на вытянутых руках <b>3 × 20 сек</b>. Разогревает хват, плечи, растягивает широчайшие</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.3);color:var(--wed)">5</div><div class="wut"><b>Наклоны вперёд стоя</b> — ноги прямые, тянись руками к полу. Держи <b>20 сек × 3</b>. Разогревает заднюю поверхность и поясницу</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.3);color:var(--wed)">6</div><div class="wut"><b>Вращения запястий и предплечий</b> — <b>10 раз в каждую сторону</b>. Готовит хват к длинным подходам на турнике</div></div>
+      <div class="wunote"><b>Перед подтягиваниями:</b> 2 лёгких подхода по 4–5 повторов или просто вис 2×20 сек. В тренажёрах первый подход делай на половинном весе</div>
+    </div></div>
+  </div>
+
+
+  <div class="finbanner" id="fin-wed"><div class="fbt">💪 Среда закрыта!</div><div class="fbs">Спина и бицепс получили всё что нужно</div></div>
+  <div class="exlist" id="list-wed">
+    <div class="excard" data-sets="3" data-rest="150" data-day="wed" data-name="Взрывные подтягивания">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">01</div><div class="exmain"><div class="extit">Взрывные подтягивания</div><div class="exmus">Широчайшие + взрывная сила (основа для muscle-up)</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">3</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">2:30</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Хват чуть уже плеч. Старт из полного виса, плечи активны</li>
+          <li><span class="sd">2</span>Взрывной рывок вверх: тяни <b>грудь к перекладине</b>, а не подбородок. Небольшая отдача корпуса допустима</li>
+          <li><span class="sd">3</span>Опускайся под контролем <b>3 сек</b> до полного виса, затем следующий повтор. Всего 3 повтора в подходе</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Идёт первым, пока руки свежие: взрывная сила нужна, когда нет усталости</li>
+          <li><span class="tb">✓</span>Только 3 повтора, каждый максимально быстрый. Если скорость падает — остановись, подход закончен</li>
+          <li><span class="tb">✓</span>Это основа для выхода силой: когда 3×3 грудью к перекладине идут легко, добавим негативные выходы</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Подбородок вместо груди — амплитуда слишком короткая</li>
+          <li><span class="eb">!</span>Раскачка ногами и киппинг — тяга должна быть от спины</li>
+          <li><span class="eb">!</span>Не доходишь до полного виса внизу — срезаешь амплитуду</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">Когда 3 подхода по 3 повтора грудью к перекладине даются легко — напиши мне, добавим выход силой</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="150" data-day="wed" data-name="Подтягивания широким">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">02</div><div class="exmain"><div class="extit">Подтягивания широким</div><div class="exmus">Широчайшие + Бицепс</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">6→10</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">2:30</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl" style="color:var(--wed)">Техника</div><ul class="steps">
+          <li><span class="sd" style="background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.25);color:var(--wed)">1</span>Хват шире плеч, ладони от себя. <b>Полный разгиб</b> рук внизу — обязательно</li>
+          <li><span class="sd" style="background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.25);color:var(--wed)">2</span>Думай: «привожу локти к карманам». Тяни <b>грудь к перекладине</b>, слегка прогибаясь</li>
+          <li><span class="sd" style="background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.25);color:var(--wed)">3</span>Пауза <b>1 сек</b> вверху, сожми лопатки. Опускайся <b>3 сек</b> до полного разгиба</li>
+        </ul></div>
+        <div class="blk"><div class="blbl" style="color:var(--wed)">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Подбородок тянется к турнику — работает шея, не спина</li>
+          <li><span class="eb">!</span>Срезание амплитуды внизу — нет роста широчайших</li>
+        </ul></div>
+        <div class="blk"><div class="blbl" style="color:var(--wed)">Прогрессия</div><div class="pp" style="background:rgba(0,212,255,.05);border-color:rgba(0,212,255,.15)">10 повторов во всех подходах → <b>пояс с блином</b> или пауза 3 сек вверху</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="120" data-day="wed" data-name="Тяга сидя в тренажёре">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">03</div><div class="exmain"><div class="extit">Тяга сидя в тренажёре</div><div class="exmus">Широчайшие + Середина спины + Бицепс</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">8→12</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">2:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Подбери сиденье: рукоятки на уровне середины груди. Грудь прижата к упору, руки прямые, лопатки разведены вперёд — это растяжка</li>
+          <li><span class="sd">2</span>Тяни рукоятки к корпусу: сначала <b>сводишь лопатки</b>, потом сгибаешь руки. Локти идут назад вдоль тела</li>
+          <li><span class="sd">3</span>Пауза <b>1–2 сек</b> со сведёнными лопатками. Возвращай <b>3 сек</b> до полной растяжки</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Начни с лёгкого веса (по одному 10 кг блину с каждой стороны), подбери так, чтобы последние 2 повтора давались тяжело</li>
+          <li><span class="tb">✓</span>Думай «тяну локтями», а не кистями — так включается спина, а не бицепс</li>
+          <li><span class="tb">✓</span>Если тренажёр сломан — тяга гантели одной рукой в наклоне, 3×8→12 на руку</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Откидываешься назад и тянешь корпусом — работает поясница, не спина</li>
+          <li><span class="eb">!</span>Плечи поднимаются к ушам — опусти их вниз перед каждым повтором</li>
+          <li><span class="eb">!</span>Срезаешь амплитуду на растяжке — спина растёт хуже</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">12 повторов во всех подходах → <b>+2.5–5 кг</b> (следующий блин)</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="60" data-day="wed" data-name="Задняя дельта в тренажёре">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">04</div><div class="exmain"><div class="extit">Разведения в тренажёре на заднюю дельту</div><div class="exmus">Задняя дельта («бабочка» наоборот)</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">12→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Сядь лицом к подушке «бабочки» (режим обратных разведений): грудь прижата, рукоятки на уровне плеч, руки почти прямые, локти слегка согнуты</li>
+          <li><span class="sd">2</span>Разводи руки назад и в стороны до линии плеч или чуть дальше. Тяни <b>локтями</b>, а не кистями</li>
+          <li><span class="sd">3</span>Пауза <b>1 сек</b>, возвращай <b>3 сек</b>, не опуская плиты до упора на стек</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Вес лёгкий: это маленькая мышца, чистое движение важнее цифры на стеке</li>
+          <li><span class="tb">✓</span>Нужна для баланса плеч — в понедельник тебе много жимов, и без задней дельты плечи начнут заваливаться вперёд</li>
+          <li><span class="tb">✓</span>Если тренажёр сломан — разведения лёгких гантелей в наклоне, 3×12→15</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Слишком тяжёлый вес — включаются трапеции и спина, дельта отдыхает</li>
+          <li><span class="eb">!</span>Раскачка корпусом и отрыв груди от подушки</li>
+          <li><span class="eb">!</span>Сводишь лопатки в начале движения — тогда работает спина, а не дельта</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов во всех подходах → <b>+1 пластина</b> на стеке</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="75" data-day="wed" data-name="Бицепс в тренажёре">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">05</div><div class="exmain"><div class="extit">Сгибания на бицепс в тренажёре</div><div class="exmus">Бицепс</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">10→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:15</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Подбери сиденье: локти лежат на подушке, подмышки у верхнего края упора</li>
+          <li><span class="sd">2</span>Сгибай руки до плеч, пауза <b>1 сек</b> вверху. Выдох на подъёме</li>
+          <li><span class="sd">3</span>Опускай <b>3 сек</b> почти до прямых рук, без броска вниз</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Локти не отрываются от подушки, плечи не поднимаются</li>
+          <li><span class="tb">✓</span>Вес лёгкий-средний: важнее чистое движение и медленный негатив</li>
+          <li><span class="tb">✓</span>Если тренажёр сломан — сгибания гантелей сидя, 3×10→12</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Раскачка корпусом — бицепс отключается</li>
+          <li><span class="eb">!</span>Бросаешь вес вниз — теряешь половину работы и грузишь сухожилия локтя</li>
+          <li><span class="eb">!</span>Слишком тяжёлый вес — локти не любят рывков</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов во всех подходах → <b>+2.5 кг</b> (следующая пластина на стеке)</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="60" data-day="wed" data-name="Русский твист с блином">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">06</div><div class="exmain"><div class="extit">Русский твист с блином</div><div class="exmus">Косые мышцы живота</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">10→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Сядь на пол (лучше на коврик), колени согнуты, ступни стоят на полу. Отклони корпус назад примерно на 45°, спина прямая, не круглая. Держи блин 5 кг двумя руками перед грудью</li>
+          <li><span class="sd">2</span>Поверни корпус вправо и коснись блином пола у бедра, затем поверни влево и коснись пола с другой стороны. Вправо и влево — это <b>1 повтор</b>. Обе стороны идут в одном подходе, без остановки</li>
+          <li><span class="sd">3</span>Поворачивай грудную клетку и плечи, а не только руки. Смотри на блин, двигайся плавно и без рывков</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Стопы на полу — легче. Когда пойдёт чисто, подними ноги в воздух: нагрузка вырастет</li>
+          <li><span class="tb">✓</span>Вес начни с 5 кг (можно взять гантель). Лучше лёгкий вес и чистый поворот, чем тяжёлый с рывками</li>
+          <li><span class="tb">✓</span>Хват и спина здесь не мешают, поэтому косые устанут первыми</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Спина округляется — отклонись назад чуть меньше и держи грудь поднятой</li>
+          <li><span class="eb">!</span>Двигаешь только руками, корпус стоит — косые не работают</li>
+          <li><span class="eb">!</span>Слишком тяжёлый блин и рывки — риск для поясницы</li>
+          <li><span class="eb">!</span>Ёрзаешь тазом по полу — таз остаётся на месте, вращается корпус</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов во всех подходах → блин тяжелее (+2.5 кг) или ступни в воздухе</div></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ПЯТНИЦА ══════════════ -->
+<div class="daypanel" id="dp-fri" style="--c:var(--fri)">
+  <div class="hero">
+    <div class="hs-d"><em style="color:var(--fri)">ПТ</em><br>НО<br>ГИ</div>
+    <div class="hs-m">
+      <div class="hs-f">Ноги · Ягодицы · Икры · Пресс</div>
+      <div class="hs-chips"><div class="hchip">6 упр.</div><div class="hchip">17 подх.</div><div class="hchip">~55 мин</div></div>
+    </div>
+  </div>
+
+  <div class="wu" id="wu-fri" style="--c:var(--fri)">
+    <div class="wu-hd" onclick="toggleWu('wu-fri')">
+      <div class="wu-ico">🔥</div>
+      <div class="wu-info"><div class="wu-tit">Разминка</div><div class="wu-sub">5–7 мин · Перед тренировкой обязательно</div></div>
+      <div class="wu-arr">▾</div>
+    </div>
+    <div class="wu-body"><div class="wu-inner">
+      <div class="wustep"><div class="wun" style="background:rgba(255,98,0,.12);border-color:rgba(255,98,0,.3);color:var(--fri)">1</div><div class="wut"><b>Махи ногами</b> — держась за опору, вперёд-назад и в стороны. <b>10 раз × каждая нога</b>. Разогревает тазобедренный сустав</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(255,98,0,.12);border-color:rgba(255,98,0,.3);color:var(--fri)">2</div><div class="wut"><b>Круговые движения тазом</b> — руки на бёдрах, вращай тазом. <b>10 раз в каждую сторону</b></div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(255,98,0,.12);border-color:rgba(255,98,0,.3);color:var(--fri)">3</div><div class="wut"><b>Приседания без веса</b> — медленно с паузой 2 сек внизу. <b>2 × 12</b>. Разогревает колени, квадрицепс и голеностоп</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(255,98,0,.12);border-color:rgba(255,98,0,.3);color:var(--fri)">4</div><div class="wut"><b>Выпады на месте</b> — <b>2 × 8 на каждую ногу</b>. Готовит стабилизаторы и растягивает сгибатели бедра</div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(255,98,0,.12);border-color:rgba(255,98,0,.3);color:var(--fri)">5</div><div class="wut"><b>Растяжка квадрицепса стоя</b> — стоя на одной ноге потяни стопу к ягодице. Держи <b>30 сек × каждую ногу</b></div></div>
+      <div class="wustep"><div class="wun" style="background:rgba(255,98,0,.12);border-color:rgba(255,98,0,.3);color:var(--fri)">6</div><div class="wut"><b>Подъёмы на носки без веса — с двух ног</b> — <b>2 × 20 медленно</b>. Разогревает икры и голеностоп</div></div>
+      <div class="wunote"><b>Перед приседами:</b> пустой гриф 2×10, затем ~50% рабочего веса ×6 и ~75% ×3. Разминочные подходы не считаются в план. Колени холодные — разогревай дольше</div>
+    </div></div>
+  </div>
+
+
+  <div class="finbanner" id="fin-fri"><div class="fbt">🏆 Пятница закрыта!</div><div class="fbs">Ноги сделаны. Отдыхай — заслужил</div></div>
+  <div class="exlist" id="list-fri">
+<div class="excard" data-sets="4" data-rest="150" data-day="fri" data-name="Приседания со штангой">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">01</div><div class="exmain"><div class="extit">Приседания со штангой</div><div class="exmus">Квадрицепс + Ягодицы</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">4</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">8→12</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">2:30</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Гриф на задней части трапеций, не на шее. Хват чуть шире плеч, локти назад-вниз, грудь высоко. Сними со стойки и сделай 2 шага назад</li>
+          <li><span class="sd">2</span>Ноги чуть шире плеч, носки развёрнуты на 15–30°. Вдох, пресс напряжён как перед ударом в живот</li>
+          <li><span class="sd">3</span>Садись <b>2–3 сек</b>: таз назад-вниз, колени идут по линии носков. Глубина — бёдра минимум параллельно полу</li>
+          <li><span class="sd">4</span>Вставай через <b>всю стопу</b>, выдох на подъёме. Корпус держит тот же наклон, поясница нейтральна</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Первый раз: <b>пустой гриф</b> 2×10 для техники, потом добавляй по 5–10 кг, пока 8-й повтор не станет тяжёлым</li>
+          <li><span class="tb">✓</span>Предохранительные упоры ставь чуть <b>ниже самой нижней точки</b> приседа. Не вывез повтор — опусти гриф на упоры, не борись</li>
+          <li><span class="tb">✓</span>Обувь с плоской жёсткой подошвой, а не мягкие кроссовки с амортизацией</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Колени заваливаются внутрь — главный риск травмы</li>
+          <li><span class="eb">!</span>Поясница округляется внизу — уменьши глубину и держи пресс</li>
+          <li><span class="eb">!</span>Пятки отрываются — сместись весом на середину стопы</li>
+          <li><span class="eb">!</span>Полуприсед — ягодицы и квадрицепс почти не работают</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">12 повторов во всех подходах → <b>+5 кг</b>. Ноги прогрессируют быстрее верха</div></div>
+      </div></div>
+    </div>
+
+    <div class="excard" data-sets="3" data-rest="90" data-day="fri" data-name="Выпады назад">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">02</div><div class="exmain"><div class="extit">Выпады назад с гантелями</div><div class="exmus">Квадрицепс + Ягодицы</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">10→12</div><div class="sk">На ногу</div></div><div class="exstat"><div class="sv">1:30</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Встань прямо, гантели в руках вдоль тела (в первые недели можно без веса). Ноги на ширине таза, пресс напряжён, корпус ровный</li>
+          <li><span class="sd">2</span>Сделай шаг назад одной ногой и опускайся, пока заднее колено почти не коснётся пола. Переднее колено над стопой, голень почти вертикальна</li>
+          <li><span class="sd">3</span>Оттолкнись передней ногой и вернись в старт, следующий шаг делай другой ногой. Ноги чередуются без остановок. <b>10→12 шагов на каждую ногу</b> — это один подход</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Шаг назад мягче для колен, чем шаг вперёд, и не требует много места</li>
+          <li><span class="tb">✓</span>Начни с собственным весом, потом гантели по 8–10 кг. Это путь к одноногим приседаниям</li>
+          <li><span class="tb">✓</span>Приседания дают квадрицепсу всего 4 подхода в неделю — выпады добавляют объём без тренажёров</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Переднее колено уходит вперёд за носок или внутрь</li>
+          <li><span class="eb">!</span>Короткий шаг — вся нагрузка падает на колено</li>
+          <li><span class="eb">!</span>Корпус заваливается вперёд — держи грудь поднятой</li>
+          <li><span class="eb">!</span>Бросаешь себя вниз без контроля — опускайся 2 сек</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">12 шагов на ногу во всех подходах → гантели тяжелее (+2 кг в каждой руке). Потом болгарские сплит-приседания, позже пистолет</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="75" data-day="fri" data-name="Сгибания ног лёжа">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">03</div><div class="exmain"><div class="extit">Сгибания ног лёжа в тренажёре</div><div class="exmus">Задняя поверхность бедра</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">10→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:15</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Ляг лицом вниз: валик на задней части голени над пяткой, колени на краю скамьи, таз прижат</li>
+          <li><span class="sd">2</span>Сгибай ноги до угла 90° и больше, пауза <b>1 сек</b>, выдох</li>
+          <li><span class="sd">3</span>Опускай <b>3 сек</b> почти до полного разгиба</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Приседания грузят заднюю поверхность бедра слабо — здесь она получает основную работу</li>
+          <li><span class="tb">✓</span>Вес умеренный: важна медленная негативная фаза</li>
+          <li><span class="tb">✓</span>Если тренажёр сломан — румынская тяга с гантелями: 3×10→12, спина прямая, гантели скользят вдоль ног</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Таз отрывается от скамьи — прижимай его всё время</li>
+          <li><span class="eb">!</span>Рывок и бросок вниз — теряется нагрузка</li>
+          <li><span class="eb">!</span>Слишком тяжёлый вес — работает поясница вместо бедра</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов во всех подходах → <b>+2.5–5 кг</b> (следующая пластина)</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="3" data-rest="60" data-day="fri" data-name="Подъём на носки стоя">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">04</div><div class="exmain"><div class="extit">Подъём на носки стоя</div><div class="exmus">Икры (икроножная)</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">3</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">10→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Встань носками на край платформы: в тренажёре для икр стоя, либо в смите (гриф на трапециях), либо на блин с гантелями в руках. Пятки свободно свисают, колени прямые, но не «заперты»</li>
+          <li><span class="sd">2</span>Опусти пятки максимально вниз — полная растяжка икр, пауза <b>1 сек</b></li>
+          <li><span class="sd">3</span>Поднимись на носки <b>максимально высоко</b>, задержись <b>1–2 сек</b> вверху и опускай <b>3 сек</b></li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Стоя работает икроножная — это верхняя, заметная часть икры. Сидя её почти нет, поэтому оба варианта нужны</li>
+          <li><span class="tb">✓</span>Здесь вес тяжелее, чем сидя: икроножная лучше растёт на 10–15 повторах</li>
+          <li><span class="tb">✓</span>Колени держи прямыми весь подход — согнёшь, и нагрузка уйдёт с икроножной</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Пружинишь внизу — вместо растяжки используешь отскок</li>
+          <li><span class="eb">!</span>Сгибаешь колени и помогаешь себе — теряется смысл упражнения</li>
+          <li><span class="eb">!</span>Неполная амплитуда — икры не растут от частичных движений</li>
+          <li><span class="eb">!</span>Делаешь быстро — пропадает негативная фаза</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов во всех подходах → <b>+5 кг</b>. Потом можно перейти на одну ногу</div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="2" data-rest="45" data-day="fri" data-name="Подъём на носки сидя">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">05</div><div class="exmain"><div class="extit">Подъём на носки сидя в тренажёре</div><div class="exmus">Икры (камбаловидная)</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">2</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">12→20</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">0:45</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Колени под валик, носки на платформе, пятки свободно свисают</li>
+          <li><span class="sd">2</span>Опусти пятки максимально вниз — растяжка икр, это старт</li>
+          <li><span class="sd">3</span>Поднимайся на носки <b>максимально высоко</b>, пауза <b>1–2 сек</b> вверху</li>
+          <li><span class="sd">4</span>Опускай <b>3 сек</b> в полную растяжку</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Сидя с согнутыми коленями больше работает глубокая икроножная (камбаловидная) — она даёт икрам толщину</li>
+          <li><span class="tb">✓</span>Повторов больше, чем в других упражнениях: икры выносливые и любят объём</li>
+          <li><span class="tb">✓</span>Если тренажёра нет — сядь на скамью, поставь носки на блин, гантель положи на колени</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Пружинишь внизу — вместо растяжки используешь отскок</li>
+          <li><span class="eb">!</span>Неполная амплитуда — икры не растут от частичных движений</li>
+          <li><span class="eb">!</span>Делаешь быстро — пропадает негативная фаза</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">20 повторов во всех подходах → <b>+5 кг</b></div></div>
+      </div></div>
+    </div>
+
+<div class="excard" data-sets="2" data-rest="60" data-day="fri" data-name="Скручивания на наклонной">
+      <div class="exhd" onclick="toggleCard(this)"><div class="exnum">06</div><div class="exmain"><div class="extit">Скручивания на наклонной скамье</div><div class="exmus">Верхний + Средний пресс</div></div><div class="exbadge">✓ ГОТОВО</div><div class="exarr">▾</div></div>
+      <div class="exstats"><div class="exstat"><div class="sv">2</div><div class="sk">Подходы</div></div><div class="exstat"><div class="sv">10→15</div><div class="sk">Повторы</div></div><div class="exstat"><div class="sv">1:00</div><div class="sk">Отдых</div></div></div>
+      <div class="stw"><div class="sthint">Нажми на подход после завершения — таймер запустится автоматически</div><div class="stdots"></div></div>
+      <div class="exbody"><div class="exinn">
+        <div class="blk"><div class="blbl">Техника</div><ul class="steps">
+          <li><span class="sd">1</span>Зафиксируй ступни под валиками, ляг на скамью. Блин держи двумя руками на груди (первые 1–2 недели можно без веса)</li>
+          <li><span class="sd">2</span>Скручивай корпус, поднимая лопатки и поясницу примерно до 30–45°. Полностью не садись</li>
+          <li><span class="sd">3</span>Пауза <b>1 сек</b> вверху, выдох. Опускай <b>3 сек</b> без расслабления внизу</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Нюансы</div><ul class="tips">
+          <li><span class="tb">✓</span>Чем круче наклон скамьи, тем тяжелее — начни с небольшого угла</li>
+          <li><span class="tb">✓</span>Вес начинай с 5 кг и добавляй блином по 2.5 кг</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Ошибки</div><ul class="errs">
+          <li><span class="eb">!</span>Полный подъём корпуса — работают сгибатели бедра, а не пресс</li>
+          <li><span class="eb">!</span>Рывок шеей и раскачка — риск для шеи и спины</li>
+        </ul></div>
+        <div class="blk"><div class="blbl">Прогрессия</div><div class="pp">15 повторов во всех подходах → блин тяжелее (+2.5 кг)</div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="resetw">
+    <button class="resetbtn" onclick="showConf()">🔄 Следующая неделя</button>
+    <div class="resetnote">Сбрасывает все подходы — начнёшь с чистого листа</div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="infsec">
+  <div class="sect">Время <em>отдыха</em></div>
+  <div class="rg">
+    <div class="rrow"><div class="ri2" style="background:rgba(57,255,122,.07)">🏋️</div><div class="rt"><div class="rtn">Брусья и подтягивания</div><div class="rtd">Базовые с весом тела</div></div><div class="rtv">2:30–3:00</div></div>
+    <div class="rrow"><div class="ri2" style="background:rgba(0,212,255,.07)">💪</div><div class="rt"><div class="rtn">Базовые со штангой</div><div class="rtd">Жим лёжа, жим сидя, приседания</div></div><div class="rtv">2:00–2:30</div></div>
+    <div class="rrow"><div class="ri2" style="background:rgba(255,98,0,.07)">🎯</div><div class="rt"><div class="rtn">Изоляция</div><div class="rtd">Подъёмы, сгибания, тяга в тренажёре</div></div><div class="rtv">1:00–2:00</div></div>
+    <div class="rrow"><div class="ri2" style="background:rgba(200,255,0,.07)">⚡</div><div class="rt"><div class="rtn">Пресс и икры</div><div class="rtd">Восстанавливаются быстро</div></div><div class="rtv">0:45–1:00</div></div>
+  </div>
+  <div class="sect" style="margin-top:20px">Как <em>прогрессировать</em></div>
+  <div class="pg">
+    <div class="prow"><div class="prn">1</div><div class="prt">Дошёл до верхней границы во <b>всех подходах</b> → следующая тренировка с <b>бо́льшим весом</b></div></div>
+    <div class="prow"><div class="prn">2</div><div class="prt">В зале вес растёт просто: <b>+2.5 кг</b> на штанге и <b>+1 пластина</b> в тренажёре, когда дошёл до верха диапазона</div></div>
+    <div class="prow"><div class="prn">3</div><div class="prt">Три тренировки подряд без роста → <b>сними 10% веса</b> на неделю и вернись</div></div>
+    <div class="prow"><div class="prn">4</div><div class="prt">Веди <b>дневник</b> — вес и повторы после каждого подхода. Без этого рост невидим</div></div>
+  </div>
+</div>
+<div class="foot"><b>Белок 1.6–2г / кг · Сон 7–9 ч · Дневник тренировок</b></div>
+
+<script>
+// ─── TELEGRAM WEBAPP ───
+const tg = window.Telegram?.WebApp;
+if (tg) {
+  tg.ready();
+  tg.expand();
+  tg.disableVerticalSwipes?.();
+  try{ tg.setHeaderColor?.('#0A0A0A'); }catch(e){}
+  try{ tg.setBackgroundColor?.('#0A0A0A'); }catch(e){}
+  try{ tg.setBottomBarColor?.('#0A0A0A'); }catch(e){}
+}
+
+function haptic(type) {
+  if (!tg?.HapticFeedback) return;
+  if (type==='light')   tg.HapticFeedback.impactOccurred('light');
+  if (type==='medium')  tg.HapticFeedback.impactOccurred('medium');
+  if (type==='success') tg.HapticFeedback.notificationOccurred('success');
+  if (type==='warning') tg.HapticFeedback.notificationOccurred('warning');
+  if (type==='error')   tg.HapticFeedback.notificationOccurred('error');
+}
+
+// ─── TIMER STATE ───
+const CIRC = 2*Math.PI*75;
+const rfill = document.getElementById('rfill');
+const rnum  = document.getElementById('rnum');
+const tex   = document.getElementById('tex');
+const ttypEl= document.getElementById('ttype');
+const sbg   = document.getElementById('sbg');
+const tsh   = document.getElementById('tsh');
+const tdone = document.getElementById('tdone');
+const tbmain= document.getElementById('tbmain');
+rfill.style.strokeDasharray = CIRC;
+rfill.style.strokeDashoffset = 0;
+
+let tTotal=0, tLeft=0, tPaused=false, tInt=null, dayColor='#39FF7A';
+
+// ─── SWITCH DAY ───
+function switchDay(day, btn) {
+  haptic('light');
+  const colMap = {mon:'#39FF7A',wed:'#00D4FF',fri:'#FF6200'};
+  const rawCol = colMap[day]||'#39FF7A';
+  document.documentElement.style.setProperty('--dayc', rawCol);
+  document.querySelectorAll('.daypanel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('dp-'+day).classList.add('active');
+  document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  const cols={mon:'var(--mon)',wed:'var(--wed)',fri:'var(--fri)'};
+  dayColor = rawCol;
+  const pf = document.getElementById('pf');
+  pf.style.background = dayColor;
+  pf.style.boxShadow  = '0 0 8px '+dayColor;
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── WARMUP ───
+function toggleWu(id) {
+  haptic('light');
+  document.getElementById(id).classList.toggle('open');
+}
+
+// ─── CARD TOGGLE ───
+function toggleCard(hd) {
+  const card = hd.closest('.excard');
+  if (card.classList.contains('done')) return;
+  haptic('light');
+  const panel = card.closest('.daypanel');
+  const wasOpen = card.classList.contains('open');
+  panel.querySelectorAll('.excard').forEach(c=>c.classList.remove('open'));
+  if (!wasOpen) {
+    card.classList.add('open');
+    setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),60);
+  }
+}
+
+// ─── BUILD SET DOTS ───
+function buildTrackers() {
+  document.querySelectorAll('.excard[data-sets]').forEach(card => {
+    const n = parseInt(card.dataset.sets);
+    const wrap = card.querySelector('.stdots');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    for (let i=1;i<=n;i++) {
+      const d = document.createElement('div');
+      d.className = 'stdot';
+      d.innerHTML = `<span class="dotchk">✓</span><div class="dotn">${i}</div><div class="dotl">сет</div>`;
+      d.addEventListener('click', e=>{ e.stopPropagation(); onSetTap(d, card); });
+      wrap.appendChild(d);
+    }
+  });
+}
+
+// ─── SET TAP ───
+function onSetTap(dot, card) {
+  const wasDone = dot.classList.contains('ok');
+  dot.classList.toggle('ok');
+
+  if (!wasDone) {
+    haptic('medium');
+    wakeWanted=true; requestWake();
+    const allDots  = card.querySelectorAll('.stdot');
+    const doneDots = card.querySelectorAll('.stdot.ok');
+    const isLastSet = allDots.length === doneDots.length;
+
+    if (isLastSet) {
+      markCardDone(card);
+      const panel = card.closest('.daypanel');
+      const cards = [...panel.querySelectorAll('.excard[data-sets]')];
+      const idx   = cards.indexOf(card);
+      const isLast= idx === cards.length-1;
+
+      if (isLast) {
+        haptic('success');
+        setTimeout(()=>showWorkoutDone(panel), 500);
+      } else {
+        const next     = cards[idx+1];
+        const currName = card.dataset.name||'';
+        const nextName = next.dataset.name||'';
+        const secs     = parseInt(card.dataset.rest)+15;
+        startTimer(secs, `${currName} → ${nextName}`, 'ПЕРЕХОД');
+      }
+    } else {
+      startTimer(parseInt(card.dataset.rest), card.dataset.name||'', 'ОТДЫХ');
+    }
+  } else {
+    haptic('light');
+    card.classList.remove('done');
+    document.getElementById('fin-'+card.dataset.day)?.classList.remove('show');
+  }
+
+  updateProgress();
+  saveState();
+}
+
+// ─── CARD DONE ───
+function markCardDone(card) {
+  card.classList.add('done');
+  card.classList.remove('open');
+  const panel = card.closest('.daypanel');
+  const all   = panel.querySelectorAll('.excard[data-sets]');
+  const done  = panel.querySelectorAll('.excard.done');
+  if (all.length===done.length) {
+    document.getElementById('fin-'+card.dataset.day)?.classList.add('show');
+  }
+}
+
+// ─── WORKOUT DONE ───
+function showWorkoutDone(panel) {
+  releaseWake();
+  closeTimer();
+  const day  = panel.id.replace('dp-','');
+  const msgs = {
+    mon:'Грудь, плечи и трицепс поработали на совесть. Заслуженный отдых',
+    wed:'Спина и бицепс получили всё что нужно. Хорошая работа',
+    fri:'Ноги сделаны. Хорошая работа — отдыхай и ешь белок'
+  };
+  document.getElementById('wcsub').textContent  = msgs[day]||'Отличная работа!';
+  document.getElementById('wcsets').textContent = panel.querySelectorAll('.stdot.ok').length;
+  document.getElementById('wcexs').textContent  = panel.querySelectorAll('.excard[data-sets]').length;
+  document.getElementById('wcov').classList.add('show');
+  tg?.HapticFeedback?.notificationOccurred('success');
+}
+function closeWC(){ document.getElementById('wcov').classList.remove('show'); }
+
+// ─── PROGRESS ───
+function updateProgress() {
+  const panel = document.querySelector('.daypanel.active');
+  if (!panel) return;
+  const all  = panel.querySelectorAll('.stdot');
+  const done = panel.querySelectorAll('.stdot.ok');
+  const pct  = all.length ? done.length/all.length*100 : 0;
+  document.getElementById('pf').style.width = pct+'%';
+  document.getElementById('pl').textContent = done.length+' / '+all.length+' подходов';
+}
+
+// ─── TIMER ───
+// Таймер считает по часам телефона, а не по тикам: не отстаёт, когда экран гаснет или Telegram сворачивают
+const tpill=document.getElementById('tpill');
+const tptype=document.getElementById('tptype');
+const tpname=document.getElementById('tpname');
+const tptime=document.getElementById('tptime');
+let tEnd=0, tDone=false;
+
+function fmtLeft(){ const m=Math.floor(tLeft/60), s=tLeft%60; return m+':'+String(s).padStart(2,'0'); }
+
+function startTimer(secs, name, type) {
+  clearInterval(tInt);
+  tTotal=secs; tLeft=secs; tPaused=false; tDone=false;
+  tEnd=Date.now()+secs*1000;
+  tdone.classList.remove('show');
+  tbmain.textContent='Пауза'; tbmain.onclick=timerToggle;
+  rfill.style.stroke       = dayColor;
+  tbmain.style.background  = dayColor;
+  ttypEl.textContent = type||'ОТДЫХ';
+  tex.textContent    = name;
+  tptype.textContent = type||'ОТДЫХ';
+  tpname.textContent = name;
+  tpill.classList.remove('show','done');
+  updateRing();
+  sbg.classList.add('show');
+  tsh.classList.add('show');
+  tInt = setInterval(tick,250);
+}
+function tick(){
+  if (tPaused || tDone || !tTotal) return;
+  const left=Math.max(0,Math.ceil((tEnd-Date.now())/1000));
+  if (left!==tLeft){ tLeft=left; updateRing(); }
+  if (left<=0) finishTimer();
+}
+function finishTimer(){
+  clearInterval(tInt);
+  tDone=true;
+  beep();
+  haptic('warning');
+  try{ navigator.vibrate?.([250,120,250]); }catch(e){}
+  tdone.classList.add('show');
+  rfill.style.stroke='var(--gold)';
+  tbmain.textContent='Закрыть'; tbmain.onclick=closeTimer;
+  tptype.textContent='ГОТОВО'; tpname.textContent='Следующий подход!'; tptime.textContent='✓';
+  tpill.classList.add('done');
+}
+function updateRing(){
+  rnum.textContent  = fmtLeft();
+  tptime.textContent= fmtLeft();
+  rfill.style.strokeDashoffset = CIRC*(1-tLeft/tTotal);
+}
+function timerToggle(){
+  if (tDone) return;
+  if (!tPaused){ tLeft=Math.max(0,Math.ceil((tEnd-Date.now())/1000)); tPaused=true; }
+  else { tEnd=Date.now()+tLeft*1000; tPaused=false; }
+  tbmain.textContent=tPaused?'Продолжить':'Пауза';
+  haptic('light');
+}
+// фон, ручка или свайп вниз — свернуть (таймер продолжает идти)
+function minimizeTimer(){
+  if (!tTotal) return;
+  if (tDone){ closeTimer(); return; }
+  sbg.classList.remove('show');
+  tsh.classList.remove('show');
+  tpill.classList.add('show');
+  haptic('light');
+}
+function expandTimer(){
+  if (tDone){ closeTimer(); return; }
+  tpill.classList.remove('show');
+  sbg.classList.add('show');
+  tsh.classList.add('show');
+  haptic('light');
+}
+// «Пропустить» и «Закрыть» — полностью остановить
+function closeTimer(){
+  clearInterval(tInt);
+  tTotal=0; tDone=false; tPaused=false;
+  sbg.classList.remove('show');
+  tsh.classList.remove('show');
+  tpill.classList.remove('show','done');
+  rfill.style.stroke=dayColor;
+  tbmain.onclick=timerToggle; tbmain.textContent='Пауза';
+  tdone.classList.remove('show');
+  haptic('light');
+}
+let ty0=null;
+tsh.addEventListener('touchstart',e=>{ ty0=e.touches[0].clientY; },{passive:true});
+tsh.addEventListener('touchend',e=>{
+  if (ty0===null) return;
+  const dy=e.changedTouches[0].clientY-ty0; ty0=null;
+  if (dy>70) minimizeTimer();
+},{passive:true});
+
+// ─── ЗВУК (iOS/Android блокируют звук без касания, поэтому "будим" его первым тапом) ───
+let audioCtx=null;
+function unlockAudio(){
+  try{
+    if(!audioCtx) audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==='suspended') audioCtx.resume();
+  }catch(e){}
+}
+['touchstart','pointerdown','click'].forEach(ev=>document.addEventListener(ev,unlockAudio,{passive:true}));
+function beep(){
+  try{
+    unlockAudio();
+    const ctx=audioCtx; if(!ctx) return;
+    [[0,660],[.18,880],[.36,1100]].forEach(([t,f])=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.connect(g);g.connect(ctx.destination);
+      o.frequency.value=f;o.type='sine';
+      g.gain.setValueAtTime(.22,ctx.currentTime+t);
+      g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+t+.18);
+      o.start(ctx.currentTime+t);o.stop(ctx.currentTime+t+.2);
+    });
+  }catch(e){}
+}
+
+// ─── ЭКРАН НЕ ГАСНЕТ ВО ВРЕМЯ ТРЕНИРОВКИ ───
+let wakeLock=null, wakeWanted=false;
+async function requestWake(){
+  if(!wakeWanted) return;
+  try{
+    if('wakeLock' in navigator && !wakeLock){
+      wakeLock=await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release',()=>{ wakeLock=null; });
+    }
+  }catch(e){}
+}
+function releaseWake(){
+  wakeWanted=false;
+  try{ wakeLock?.release(); }catch(e){}
+  wakeLock=null;
+}
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden){ tick(); requestWake(); }
+});
+
+// ─── CONFIRM DIALOG ───
+function showConf(){ haptic('light'); document.getElementById('confov').classList.add('show'); }
+function hideConf(){ haptic('light'); document.getElementById('confov').classList.remove('show'); }
+function doReset(){
+  haptic('medium');
+  releaseWake();
+  closeTimer();
+  document.getElementById('confov').classList.remove('show');
+  document.querySelectorAll('.stdot').forEach(d=>d.classList.remove('ok'));
+  document.querySelectorAll('.excard').forEach(c=>c.classList.remove('done','open'));
+  document.querySelectorAll('.finbanner').forEach(b=>b.classList.remove('show'));
+  try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+  updateProgress();
+  document.querySelectorAll('.daypanel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('dp-mon').classList.add('active');
+  document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('active'));
+  document.querySelector('.dtab').classList.add('active');
+  dayColor='#39FF7A';
+  document.documentElement.style.setProperty('--dayc','#39FF7A');
+  document.getElementById('pf').style.background='var(--mon)';
+  document.getElementById('pf').style.boxShadow='0 0 8px var(--mon)';
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── LOCAL STORAGE ───
+const STORAGE_KEY = 'workout_tg_v2';
+function saveState(){
+  try{
+    const s={};
+    document.querySelectorAll('.excard[data-day]').forEach(c=>{
+      s['c|'+c.dataset.day+'|'+c.dataset.name]={
+        sets:[...c.querySelectorAll('.stdot')].map(d=>d.classList.contains('ok')),
+        done:c.classList.contains('done')
+      };
+    });
+    ['mon','wed','fri'].forEach(d=>{
+      const el=document.getElementById('fin-'+d);
+      if(el) s['f'+d]=el.classList.contains('show');
+    });
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(s));
+  }catch(e){}
+}
+function loadState(){
+  let s;
+  try{ s=JSON.parse(localStorage.getItem(STORAGE_KEY)); }catch(e){}
+  if(!s) return;
+  document.querySelectorAll('.excard[data-day]').forEach(c=>{
+    const sv=s['c|'+c.dataset.day+'|'+c.dataset.name]; if(!sv) return;
+    c.querySelectorAll('.stdot').forEach((d,j)=>{ if(sv.sets?.[j]) d.classList.add('ok'); });
+    if(sv.done){ c.classList.add('done'); c.classList.remove('open'); }
+  });
+  ['mon','wed','fri'].forEach(d=>{
+    const el=document.getElementById('fin-'+d);
+    if(el&&s['f'+d]) el.classList.add('show');
+  });
+}
+
+
+// ─── INIT ───
+buildTrackers();
+loadState();
+updateProgress();
+(function openFirstUnfinishedDay(){
+  for (const d of ['mon','wed','fri']) {
+    const dots=document.querySelectorAll('#dp-'+d+' .stdot');
+    const left=[...dots].some(x=>!x.classList.contains('ok'));
+    if (left) {
+      if (d!=='mon') document.querySelector(".dtab[onclick*=\"'"+d+"'\"]")?.click();
+      return;
+    }
+  }
+})();
+// Apply initial color
+document.documentElement.style.setProperty('--dayc', '#39FF7A');
+</script>
+</body>
+</html>
